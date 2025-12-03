@@ -1,5 +1,4 @@
 "use client";
-// as we're using hook we have to make it client component
 
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { GraduationCap, Hand, LayoutIcon, Settings } from "lucide-react";
@@ -10,55 +9,58 @@ function SideNav() {
   const { user } = useKindeBrowserClient();
 
   const menuList = [
-    {
-      id: 1,
-      name: "Dashboard",
-      icon: LayoutIcon,
-      path: "/dashboard",
-    },
+    { id: 1, name: "Dashboard", icon: LayoutIcon, path: "/dashboard" },
     {
       id: 2,
       name: "Students",
       icon: GraduationCap,
       path: "/dashboard/students",
     },
-    {
-      id: 3,
-      name: "Attendance",
-      icon: Hand,
-      path: "/dashboard/attendance",
-    },
-    {
-      id: 4,
-      name: "Settings",
-      icon: Settings,
-      path: "/dashboard/settings",
-    },
+    { id: 3, name: "Attendance", icon: Hand, path: "/dashboard/attendance" },
+    { id: 4, name: "Settings", icon: Settings, path: "/dashboard/settings" },
   ];
+
   return (
-    <div className="border shadow-md h-screen">
-      <Image src={"/logo.svg"} width={70} height={30} alt="logo" />
+    <div className="border shadow-md h-screen p-5">
+      <div className="mb-8">
+        <Image src="/logo.svg" width={70} height={30} alt="Logo" />
+      </div>
 
-      <hr className="my-5"></hr>
+      <hr className="my-5" />
 
-      {menuList.map((menu, index) => (
-        <h2 className="flex items-center gap-3 p-4 text-slate-500 hover:bg-primary hover:text-white cursor-pointer rounded-lg my-2">
-          <menu.icon /> {menu.name}
-        </h2>
-      ))}
-      <div className="flex gap-2 items-center bottom-5  p-4 fixed">
-        <Image
-          src={user?.picture}
-          width={35}
-          height={35}
-          alt="user"
-          className="rounded-full"
-        ></Image>
-        <div>
-          <h2 className="text-sm font-bold">
+      <div className="space-y-2">
+        {menuList.map((menu) => (
+          <div
+            key={menu.id}
+            className="flex items-center gap-3 p-4 text-slate-500 hover:bg-primary hover:text-white cursor-pointer rounded-lg transition-all"
+          >
+            <menu.icon className="w-5 h-5" />
+            <span>{menu.name}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* User Profile Section */}
+      <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
+        {user?.picture ? (
+          <Image
+            src={user.picture}
+            width={40}
+            height={40}
+            alt="User profile"
+            className="rounded-full border-2 border-white shadow"
+          />
+        ) : (
+          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+            {(user?.given_name?.[0] || "U").toUpperCase()}
+          </div>
+        )}
+
+        <div className="overflow-hidden">
+          <h2 className="text-sm font-semibold truncate">
             {user?.given_name} {user?.family_name}
           </h2>
-          <h2 className="text-xs text-slate-400">{user?.email}</h2>
+          <p className="text-xs text-slate-500 truncate">{user?.email}</p>
         </div>
       </div>
     </div>
