@@ -1,9 +1,16 @@
-import React from 'react'
+"use client"
+
+import { useTheme } from "next-themes";
+import React, { useEffect } from "react";
 
 function Dashboard() {
-  return (
-    <div>Dashboard</div>
-  )
+  const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setTheme('light');
+  }, []);
+
+  return <div>Dashboard</div>;
 }
 
-export default Dashboard
+export default Dashboard;
