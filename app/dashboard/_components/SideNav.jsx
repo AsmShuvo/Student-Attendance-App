@@ -3,6 +3,7 @@
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { GraduationCap, Hand, LayoutIcon, Settings } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function SideNav() {
@@ -30,13 +31,14 @@ function SideNav() {
 
       <div className="space-y-2">
         {menuList.map((menu) => (
-          <div
+          <Link key={menu.id} href={menu?.path} ><div
             key={menu.id}
             className="flex items-center gap-3 p-4 text-slate-500 hover:bg-primary hover:text-white cursor-pointer rounded-lg transition-all"
           >
             <menu.icon className="w-5 h-5" />
             <span>{menu.name}</span>
-          </div>
+          </div></Link>
+          
         ))}
       </div>
 
