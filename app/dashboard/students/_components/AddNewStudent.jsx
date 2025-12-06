@@ -14,16 +14,19 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import GlobalApi from "@/app/_services/GlobalApi"; 
+import GlobalApi from "@/app/_services/GlobalApi";
 import { toast } from "sonner";
+import { LoaderIcon } from "lucide-react";
 
 function AddNewStudent() {
   const [open, setOpen] = useState(false);
   const [grades, setGrades] = useState([]);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -40,13 +43,16 @@ function AddNewStudent() {
 
   const onSubmit = (data) => {
     console.log("Form data : ", data);
-
+    setLoading(true);
     GlobalApi.CreateNewStudent(data).then((res) => {
       console.log("--", res);
       if (res.data) {
+        reset();
+        // setLoading(false);
         setOpen(false);
         toast("New Student Added");
       }
+      setLoading(false);
     });
   };
 
@@ -95,11 +101,16 @@ function AddNewStudent() {
                   />
                 </div>
                 <div className="flex gap-3 items-center justify-end mt-4">
-                  <Button onClick={() => setOpen(false)} variant="ghost">
+                  <Button
+                    type="submit"
+                    onClick={() => setOpen(false)}
+                    variant="ghost"
+                  >
                     Cancel
                   </Button>
-                  <Button type="submit" onClick={() => console.log("Save")}>
-                    Save
+                  <Button type="submit" disabled={loading} onClick={() => console.log("Save")}>
+                    {loading? <LoaderIcon className="animate-spin"/>: "save" }
+                    {/* Save */}
                   </Button>
                 </div>
               </form>
