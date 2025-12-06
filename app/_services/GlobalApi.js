@@ -8,4 +8,8 @@ const CreateNewStudent = (data) => {
   return axios.post("/api/student", data);
 };
 
-export default { GetAllGrades, CreateNewStudent };
+const GetAllStudents = () => {
+  return axios.get("/api/student");
+};
+
+export default { GetAllGrades, CreateNewStudent, GetAllStudents };
