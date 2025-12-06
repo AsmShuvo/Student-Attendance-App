@@ -1,4 +1,4 @@
-import { pgTable, integer, varchar } from "drizzle-orm/pg-core";
+import { pgTable, integer, varchar, boolean, date } from "drizzle-orm/pg-core";
 
 export const GRADES = pgTable("grades", {
   id: integer("id").generatedAlwaysAsIdentity().primaryKey(),
@@ -11,4 +11,12 @@ export const STUDENTS = pgTable("students", {
   grade: varchar("grade", { length: 5 }).notNull(),
   address: varchar("address", { length: 255 }).notNull(),
   contact: varchar("contact", { length: 15 }).notNull(),
+});
+
+export const ATTENDANCE = pgTable("attendance", {
+  id: integer("id").generatedAlwaysAsIdentity().primaryKey(),
+  studentId: integer("studentId").notNull(),
+  present: boolean("present").default(false),
+  day: integer("day").notNull(),
+  date: date("date").notNull(),
 });
