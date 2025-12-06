@@ -12,4 +12,8 @@ const GetAllStudents = () => {
   return axios.get("/api/student");
 };
 
-export default { GetAllGrades, CreateNewStudent, GetAllStudents };
+const DeleteStudentRecord = (id) => {
+  return axios.delete(`/api/student?id=`+id);
+};
+
+export default { GetAllGrades, CreateNewStudent, GetAllStudents, DeleteStudentRecord };

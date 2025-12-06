@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import AddNewStudent from "./_components/AddNewStudent";
 import GlobalApi from "@/app/_services/GlobalApi";
-import StudentListTable from "../_components/StudentListTable";
+import StudentListTable from "./_components/StudentListTable";
 
 function Student() {
   const [studentList, setStudentList] = useState([]);
@@ -24,7 +24,7 @@ function Student() {
         <AddNewStudent />
       </h2>
 
-      <StudentListTable studentList={studentList} />
+      <StudentListTable studentList={studentList} refreshData={GetAllStudents}/>
     </div>
   );
 }
