@@ -1,3 +1,5 @@
 middleware next
 routing and rendering
 asChild
+ const month = req.nextUrl.searchParams.get("month");
+ globalapi

@@ -13,7 +13,19 @@ const GetAllStudents = () => {
 };
 
 const DeleteStudentRecord = (id) => {
-  return axios.delete(`/api/student?id=`+id);
+  return axios.delete(`/api/student?id=` + id);
 };
 
-export default { GetAllGrades, CreateNewStudent, GetAllStudents, DeleteStudentRecord };
+const GetAttendaceList = (grade, month) => {
+  console.log("i got: ", grade);
+  console.log("i got: ", month);
+  return axios.get(`/api/attendance?grade=` + grade + `&month=` + month);
+};
+
+export default {
+  GetAllGrades,
+  CreateNewStudent,
+  GetAllStudents,
+  DeleteStudentRecord,
+  GetAttendaceList,
+};
