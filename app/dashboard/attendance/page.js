@@ -12,7 +12,7 @@ function Attendance() {
   const [selectedMonth, setSelectedMonth] = useState();
   const [selectedGrade, setSelectedGrade] = useState();
   const [attendanceList, setAttendanceList] = useState();
-  const onSearchHandler = () => {
+  const onSearchHandler = async () => {
     // console.log(selectedMonth, selectedGrade);
     const month = moment(selectedMonth).startOf("month").format("YYYY-MM-DD");
 
@@ -36,14 +36,18 @@ function Attendance() {
     //     );
     //   });
     // });
-    GlobalApi.GetAttendaceList(selectedGrade, month).then((res) => {
-      const filtered = res.data.filter((d) => {
-        if (!d.date) return true; // include students with no attendance
-        return moment(d.date).isSame(selectedMonth, "month");
-      });
-      // console.log("Filtered students:", filtered);
-      setAttendanceList(filtered);
-    });
+
+    // GlobalApi.GetAttendaceList(selectedGrade, month).then((res) => {
+    //   const filtered = res.data.filter((d) => {
+    //     if (!d.date) return true; // include students with no attendance
+    //     return moment(d.date).isSame(selectedMonth, "month");
+    //   });
+    //   // console.log("Filtered students:", filtered);
+    //   setAttendanceList(filtered);
+    // });
+
+    const res = await GlobalApi.GetAttendaceList(selectedGrade, month);
+    setAttendanceList(res.data);
   };
   return (
     <div className="p-10">
@@ -64,7 +68,10 @@ function Attendance() {
       </div>
 
       {/* Student Attendance Grid */}
-      <AttendanceGrid attendanceList={attendanceList} selectedMonth={selectedMonth}/>
+      <AttendanceGrid
+        attendanceList={attendanceList}
+        selectedMonth={selectedMonth}
+      />
     </div>
   );
 }
