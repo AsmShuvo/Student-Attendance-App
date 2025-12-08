@@ -56,3 +56,40 @@ export async function GET(req, res) {
 
   return NextResponse.json(result);
 }
+
+export async function POST(req, res) {
+  const data = await req.json();
+  const result = await db.insert(ATTENDANCE).values({
+    studentId: data.studentId,
+    present: data.present,
+    day: data.day,
+    date: data.date,
+  });
+
+  return NextResponse.json(result);
+}
+
+export async function DELETE(req, res) {
+  const { searchParams } = new URL(req.url);
+  const studentId = searchParams.get("studentId");
+  const date = searchParams.get("date");
+  const day = searchParams.get("day");
+
+  if (!studentId) {
+    console.log("studentId is not found");
+    return NextResponse.json(
+      { error: "Missing studentId parameter" },
+      { status: 400 }
+    );
+  }
+
+  const result = await db
+    .delete(ATTENDANCE)
+    .where(
+      and(eq(ATTENDANCE.studentId, studentId)),
+      eq(ATTENDANCE.date, date),
+      eq(ATTENDANCE.day, day)
+    );
+
+  return NextResponse.json(result);
+}

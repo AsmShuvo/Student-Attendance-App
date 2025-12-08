@@ -22,10 +22,22 @@ const GetAttendaceList = (grade, month) => {
   return axios.get(`/api/attendance?grade=` + grade + `&month=` + month);
 };
 
+const MarkAttendance = (data) => {
+  return axios.post("/api/attendance", data);
+};
+
+const MarkAbsent = (studentId, day, date) => {
+  return axios.delete(
+    `/api/attendance?studentId=` + studentId + `&day=` + day + `&date=` + date
+  );
+};
+
 export default {
   GetAllGrades,
   CreateNewStudent,
   GetAllStudents,
   DeleteStudentRecord,
   GetAttendaceList,
+  MarkAttendance,
+  MarkAbsent,
 };

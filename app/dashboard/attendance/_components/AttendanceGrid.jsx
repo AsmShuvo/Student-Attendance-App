@@ -4,14 +4,16 @@ import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
 import moment from "moment";
+import GlobalApi from "@/app/_services/GlobalApi";
+import { toast } from "sonner";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 function AttendanceGrid({ attendanceList, selectedMonth }) {
   const [rowData, setRowData] = useState();
   const [colDefs, setColDefs] = useState([
-    { field: "studentId" },
-    { field: "name" },
+    { field: "studentId"},
+    { field: "name", filter: true },
   ]);
   const daysInMo = (year, month) => new Date(year, month + 1, 0).getDate();
   const numbOfDays = daysInMo(
@@ -41,6 +43,8 @@ function AttendanceGrid({ attendanceList, selectedMonth }) {
     }
   }, [attendanceList]);
 
+  // use to check if user present or not
+
   const isPresent = (stId, day) => {
     const res = attendanceList.find(
       (item) => item.day == day && item.studentId == stId
@@ -62,12 +66,40 @@ function AttendanceGrid({ attendanceList, selectedMonth }) {
     return uniqueRecord;
   };
 
-  console.log(daysArray);
+  // used to mark student attendance
+  const onMarkAttendace = (day, studentId, isPresent) => {
+    const date = moment(selectedMonth).format("YYYY-MM-DD");
+
+    if (isPresent) {
+      const data = {
+        day: day,
+        studentId: studentId,
+        present: isPresent,
+        date: date,
+      };
+      GlobalApi.MarkAttendance(data).then((res) => {
+        console.log(res);
+        toast("Student id: " + studentId + " Marked as present");
+      });
+    } else {
+      GlobalApi.MarkAbsent(studentId, day, date).then((res) => {
+        toast("Student id: " + studentId + " Marked as absent");
+      });
+    }
+  };
+
+  // console.log(daysArray);
 
   return (
     <div>
       <div style={{ height: 500 }}>
-        <AgGridReact rowData={rowData} columnDefs={colDefs} />
+        <AgGridReact
+          rowData={rowData}
+          columnDefs={colDefs}
+          onCellValueChanged={(e) =>
+            onMarkAttendace(e.colDef.field, e.data.studentId, e.newValue)
+          }
+        />
       </div>
     </div>
   );
