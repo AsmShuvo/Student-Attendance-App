@@ -86,8 +86,10 @@ And the app is ready to be used.
 ---
 
 ### 🏠 Dashboard Overview
-![Dashboard](https://ibb.co.com/YBVk6c2g](https://i.ibb.co.com/v4MPb319/dashboard1.png)
-![](https://ibb.co.com/YBVk6c2g](https://i.ibb.co.com/hF4r2pqg/image.png)
+### 🏠 Dashboard Overview
+![Dashboard 1](https://i.ibb.co.com/v4MPb319/dashboard1.png)
+
+![Dashboard 2](https://i.ibb.co.com/hF4r2pqg/image.png)
 
 ---
 
