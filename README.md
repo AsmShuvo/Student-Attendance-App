@@ -1,4 +1,4 @@
-# 🎓 Attendance System – Digital Student Attendance App
+# Attendance System – Digital Student Attendance App
 
 A modern and user-friendly **attendance management system** designed for schools, colleges and universities.  
 This application replaces traditional paperwork and helps institutions **digitize attendance**, manage multiple grades/classes and view **monthly & yearly analytics**
