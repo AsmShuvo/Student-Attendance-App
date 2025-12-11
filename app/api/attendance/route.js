@@ -3,20 +3,18 @@ import { ATTENDANCE, STUDENTS } from "@/app/utils/schema";
 import { eq, or, isNull, and } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
-export async function GET(req, res) {
+export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const grade = searchParams.get("grade");
-  const month = searchParams.get("month");
-
-  console.log(grade + " " + month);
+  const month = searchParams.get("month"); // "YYYY-MM-DD" but ekhane just month info use korte paro
 
   if (!grade || !month) {
-    console.log("Grade or month is not found");
     return NextResponse.json(
-      { error: "Missing grade or month parameter" },
+      { error: "Missing grade or month" },
       { status: 400 }
     );
   }
+
   const result = await db
     .select({
       name: STUDENTS.name,
@@ -34,28 +32,39 @@ export async function GET(req, res) {
   return NextResponse.json(result);
 }
 
-export async function POST(req, res) {
-  const data = await req.json();
-  const result = await db.insert(ATTENDANCE).values({
-    studentId: data.studentId,
-    present: data.present,
-    day: data.day,
-    date: data.date,
-  });
+export async function POST(req) {
+  try {
+    const data = await req.json();
 
-  return NextResponse.json(result);
+    const result = await db
+      .insert(ATTENDANCE)
+      .values({
+        studentId: Number(data.studentId),
+        present: !!data.present,
+        day: Number(data.day),
+        date: data.date, // "YYYY-MM-DD"
+      })
+      .returning();
+
+    return NextResponse.json(result, { status: 201 });
+  } catch (err) {
+    console.error("POST /api/attendance error:", err);
+    return NextResponse.json(
+      { error: "Failed to mark attendance" },
+      { status: 500 }
+    );
+  }
 }
 
-export async function DELETE(req, res) {
+export async function DELETE(req) {
   const { searchParams } = new URL(req.url);
   const studentId = searchParams.get("studentId");
   const date = searchParams.get("date");
   const day = searchParams.get("day");
 
-  if (!studentId) {
-    console.log("studentId is not found");
+  if (!studentId || !date || !day) {
     return NextResponse.json(
-      { error: "Missing studentId parameter" },
+      { error: "Missing studentId, date or day parameter" },
       { status: 400 }
     );
   }
@@ -63,10 +72,13 @@ export async function DELETE(req, res) {
   const result = await db
     .delete(ATTENDANCE)
     .where(
-      and(eq(ATTENDANCE.studentId, studentId)),
-      eq(ATTENDANCE.date, date),
-      eq(ATTENDANCE.day, day)
+      and(
+        eq(ATTENDANCE.studentId, Number(studentId)),
+        eq(ATTENDANCE.date, date),
+        eq(ATTENDANCE.day, Number(day))
+      )
     );
 
   return NextResponse.json(result);
 }
+

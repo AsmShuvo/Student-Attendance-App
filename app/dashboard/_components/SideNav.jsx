@@ -30,7 +30,7 @@ function SideNav() {
   return (
     <div className="border shadow-md h-screen p-5">
       <div className="mb-8">
-        <Image src="/logo.svg" width={70} height={30} alt="Logo" />
+        <Image src="/logo.png" width={140} height={70} alt="Logo" />
       </div>
 
       <hr className="my-5" />

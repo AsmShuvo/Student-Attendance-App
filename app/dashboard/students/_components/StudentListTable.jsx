@@ -28,8 +28,18 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 
 function StudentListTable({ studentList = [], refreshData }) {
   const [searchInput, setSearchInput] = useState("");
+  const [selectedGrade, setSelectedGrade] = useState("");
 
-  // delete function needs the id
+  // 🔹 unique grade list from DB
+  const gradeOptions = useMemo(() => {
+    const set = new Set();
+    studentList.forEach((s) => {
+      if (s.grade) set.add(s.grade);
+    });
+    return Array.from(set).sort();
+  }, [studentList]);
+
+  // 🔹 delete API
   const deleteRecord = async (id) => {
     try {
       const res = await GlobalApi.DeleteStudentRecord(id);
@@ -43,7 +53,7 @@ function StudentListTable({ studentList = [], refreshData }) {
     }
   };
 
-  // cell renderer can now see deleteRecord via closure
+  // 🔹 action buttons
   const customBtns = (props) => {
     const id = props?.data?.id;
     return (
@@ -72,32 +82,61 @@ function StudentListTable({ studentList = [], refreshData }) {
     );
   };
 
-  // no need to keep colDefs in state; it's static
+  // 🔹 columns (grade column added)
   const colDefs = useMemo(
     () => [
-      { field: "id", filter: true },
-      { field: "name", filter: true },
-      { field: "address", filter: true },
-      { field: "contact", filter: true },
-      { field: "action", cellRenderer: customBtns },
+      { field: "id", headerName: "Id", filter: true },
+      { field: "name", headerName: "Name", filter: true },
+      { field: "grade", headerName: "Grade", filter: true },
+      { field: "address", headerName: "Address", filter: true },
+      { field: "contact", headerName: "Contact", filter: true },
+      { field: "action", headerName: "Action", cellRenderer: customBtns },
     ],
-    [] // customBtns is stable enough; if you want to be strict, include it here
+    []
   );
+
+  // 🔹 grade filter -> rowData
+  const filteredRows = useMemo(() => {
+    if (!selectedGrade) return studentList;
+    return studentList.filter((s) => s.grade === selectedGrade);
+  }, [studentList, selectedGrade]);
 
   return (
     <div className="ag-theme-quartz" style={{ height: 500, width: "100%" }}>
-      <div className="p-2 mb-4 rounded-lg max-w-sm border shadow-sm flex gap-2 items-center">
-        <SearchSlashIcon className="w-4 h-4" />
-        <input
-          type="text"
-          className="outline-none w-full text-sm"
-          placeholder="Search on anything..."
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
+      {/* top controls: search + grade select */}
+      <div className="flex flex-wrap gap-3 mb-4">
+        {/* Search box */}
+        <div className="p-2 rounded-lg max-w-sm border shadow-sm flex gap-2 items-center flex-1">
+          <SearchSlashIcon className="w-4 h-4" />
+          <input
+            type="text"
+            className="outline-none w-full text-sm"
+            placeholder="Search on anything..."
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+        </div>
+
+        {/* Grade select */}
+        <div className="p-2 rounded-lg border shadow-sm flex items-center gap-2">
+          <span className="text-sm text-slate-600">Filter by grade:</span>
+          <select
+            className="border rounded-md px-2 py-1 text-sm text-black"
+            value={selectedGrade}
+            onChange={(e) => setSelectedGrade(e.target.value)}
+          >
+            <option value="">All</option>
+            {gradeOptions.map((g) => (
+              <option key={g} value={g}>
+                {g}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
+      {/* Grid */}
       <AgGridReact
-        rowData={studentList}
+        rowData={filteredRows}
         columnDefs={colDefs}
         pagination={pagination}
         quickFilterText={searchInput}

@@ -3,31 +3,36 @@
 import React, { useEffect, useState } from "react";
 import GlobalApi from "../_services/GlobalApi";
 
-function GradeSelect({selectedGrade}) {
+function GradeSelect({ selectedGrade }) {
   const [grades, setGrades] = useState([]);
+
   useEffect(() => {
-    GetAllGradesList();
+    GlobalApi.GetAllGrades().then((res) => {
+      // Unique grade filtering
+      const unique = Array.from(
+        new Map(res.data.map((g) => [g.grade, g])).values()
+      );
+
+      setGrades(unique);
+    });
   }, []);
 
-  const GetAllGradesList = () => {
-    GlobalApi.GetAllGrades().then((res) => {
-      // console.log(res.data);
-      setGrades(res.data);
-    });
-  };
   return (
-    <div>
-      <select
-        className="p-3 border rounded-lg"
-        onChange={(e) => selectedGrade(e.target.value)}
-      >
-        {grades?.map((item, index) => (
-          <option key={index} value={item.grade}>
-            {item.grade}
-          </option>
-        ))}
-      </select>
-    </div>
+    <select
+      className="p-3 border rounded-lg text-black"
+      defaultValue=""
+      onChange={(e) => selectedGrade(e.target.value)}
+    >
+      <option value="" disabled>
+        Select grade
+      </option>
+
+      {grades.map((g) => (
+        <option key={g.id} value={g.grade}>
+          {g.grade}
+        </option>
+      ))}
+    </select>
   );
 }
 
