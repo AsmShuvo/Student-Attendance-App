@@ -21,10 +21,13 @@ function Student() {
     <div className="p-7">
       <h2 className="font-bold text-2xl flex justify-between items-center">
         Total {studentList?.length} Students
-        <AddNewStudent />
+        <AddNewStudent refreshData={GetAllStudents} />
       </h2>
 
-      <StudentListTable studentList={studentList} refreshData={GetAllStudents}/>
+      <StudentListTable
+        studentList={studentList}
+        refreshData={GetAllStudents}
+      />
     </div>
   );
 }

@@ -17,29 +17,6 @@ export async function GET(req, res) {
       { status: 400 }
     );
   }
-
-  // const result = await db
-  //   .select({
-  //     name: STUDENTS.name,
-  //     present: ATTENDANCE.present,
-  //     day: ATTENDANCE.day,
-  //     date: ATTENDANCE.date,
-  //     grade: STUDENTS.grade,
-  //     studentId: STUDENTS.id,
-  //     attendanceId: ATTENDANCE.id,
-  //   })
-  //   .from(STUDENTS)
-  //   .leftJoin(ATTENDANCE, eq(STUDENTS.id, ATTENDANCE.studentId))
-  //   .where(
-  //     and(
-  //       eq(STUDENTS.grade, grade),
-  //       or(
-  //         eq(ATTENDANCE.date, month),
-  //         isNull(ATTENDANCE.date)
-  //       )
-  //     )
-  //   );
-
   const result = await db
     .select({
       name: STUDENTS.name,
