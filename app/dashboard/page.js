@@ -17,34 +17,45 @@ function Dashboard() {
   useEffect(() => {
     if (!selectedMonth || !selectedGrade) return;
 
-    GlobalApi.GetAttendaceList(
-      selectedGrade,
-      moment(selectedMonth).format("YYYY-MM-DD")
-    ).then((res) => {
-      setAttendanceList(res.data);
-    });
+    const dateForApi = moment(selectedMonth).format("YYYY-MM-DD");
+
+    GlobalApi.GetAttendaceList(selectedGrade, dateForApi)
+      .then((res) => {
+        // API returns all attendance for this grade (all dates)
+        setAttendanceList(res.data || []);
+      })
+      .catch((err) => {
+        console.error("Error loading attendance", err);
+        setAttendanceList([]);
+      });
   }, [selectedMonth, selectedGrade]);
 
-  // Used to get student attendace for given month & date
-
-  const getStudentAttendance = () => {
-    GlobalApi.GetAttendaceList(
-      selectedGrade,
-      moment(selectedMonth).format("YYYY-MM-DD")
-    ).then((res) => {
-      // console.log(res);
-      setAttendanceList(res.data);
-    });
-  };
-
   return (
-    <div className="p-10 flex items-center justify-between">
-      <h2 className="font-bold text-2xl">Dashboard</h2>
-      <div className="flex items-center gap-4">
-        <MonthSelection selectedMonth={setSelectedMonth} />
-        <GradeSelect selectedGrade={setSelectedGrade} />
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      <div className="max-w-6xl mx-auto px-6 py-10 space-y-8">
+        {/* Header + filters */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight">
+              Attendance Analytics
+            </h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              View monthly and yearly attendance performance for each grade.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <MonthSelection selectedMonth={setSelectedMonth} />
+            <GradeSelect selectedGrade={setSelectedGrade} />
+          </div>
+        </div>
+
+        {/* Analytics (monthly + yearly) */}
+        <StatusList
+          attendanceList={attendanceList}
+          selectedMonth={selectedMonth}
+        />
       </div>
-      <StatusList attendanceList={attendanceList} />
     </div>
   );
 }

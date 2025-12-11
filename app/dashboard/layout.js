@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }) {
       </div>
 
       {/* Main content */}
-      <div className="flex-1 md:ml-64">
+      <div className="flex flex-col w-full md:ml-64">
         <Header />
         <main className="p-6">
           {children}

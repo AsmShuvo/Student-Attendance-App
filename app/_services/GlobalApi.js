@@ -32,6 +32,16 @@ const MarkAbsent = (studentId, day, date) => {
   );
 };
 
+// const totalPresentCountByDay = (date, grade) => {
+//   return axios.get(`/api/dashboard`);
+// };
+const totalPresentCountByDay = (date, grade) => {
+  return axios.get("/api/dashboard", {
+    params: { date, grade }, // ?date=...&grade=...
+  });
+};
+
+
 export default {
   GetAllGrades,
   CreateNewStudent,
@@ -40,4 +50,5 @@ export default {
   GetAttendaceList,
   MarkAttendance,
   MarkAbsent,
+  totalPresentCountByDay,
 };
