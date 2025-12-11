@@ -86,7 +86,8 @@ And the app is ready to be used.
 ---
 
 ### 🏠 Dashboard Overview
-![Dashboard](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/dashboard.jpeg)
+![Dashboard](https://ibb.co.com/YBVk6c2g)
+![](https://ibb.co.com/YBVk6c2g)
 
 ---
 
