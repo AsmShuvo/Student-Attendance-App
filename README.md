@@ -77,3 +77,34 @@ npm run dev
 ```
 
 And the app is ready to be used.
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/login.PNG)
+
+---
+
+### 🏠 Dashboard Overview
+![Dashboard](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/dashboard.jpeg)
+
+---
+
+### 🎓 Students Management
+![Students](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/students.PNG)
+
+---
+
+### 📅 Attendance Marking Interface
+![Attendance](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/attendance.PNG)
+
+---
+
+### 🗄️ ER Diagram
+![ER Diagram](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/ER.PNG)
+
+---
+
+### 🧱 System Architecture Diagram
+![Architecture Diagram](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/Architecture.PNG)
+
