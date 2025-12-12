@@ -13,7 +13,7 @@
   <a href="https://codeforces.com/profile/Null_Pointerrrr">
     <img src="https://img.shields.io/badge/Codeforces-Specialist%201442-1f8acb?style=for-the-badge&logo=codeforces&logoColor=white" />
   </a>
-  <a href="https://leetcode.com/">
+  <a href="https://leetcode.com/u/K5EPZGy4nq/">
     <img src="https://img.shields.io/badge/LeetCode-1000%2B%20Solved-ffa116?style=for-the-badge&logo=leetcode&logoColor=black" />
   </a>
   <a href="https://www.codechef.com/users/null_pointerrr">
@@ -23,17 +23,16 @@
 
 ---
 
-## 👋 About Me
+## About Me
 
-I’m **ASM Shahrier Parvaz**, a passionate **full-stack developer** and **competitive programmer** who enjoys solving complex problems—whether through **efficient algorithms** or **scalable web systems**.
-
-I thrive at the intersection of **software engineering, AI, and competitive programming**, with a strong focus on **performance, correctness, and real-world impact**.
+I’m **ASM Shahrier Parvaz**, a passionate **full-stack developer** and **competitive programmer**.
+** Education: ** Bsc in ** Computer Science & Engineering** at **Shahjalal University of Science & Technology, Sylhet**
 
 ---
 
-## 🧠 Current Focus
+## Current Focus
 
-### 🎓 SUST Smart Attendance System (AI-Powered)
+### SUST Smart Attendance System (AI-Powered)
 An intelligent platform that **automatically marks attendance from CCTV feeds** and analyzes **facial expressions** for engagement and alertness.
 
 **Tech Stack**
@@ -51,7 +50,7 @@ An intelligent platform that **automatically marks attendance from CCTV feeds** 
 
 ---
 
-## 🧩 Competitive Programming Snapshot
+## Competitive Programming Snapshot
 
 | Platform      | Status |
 |---------------|--------|
@@ -77,40 +76,40 @@ An intelligent platform that **automatically marks attendance from CCTV feeds** 
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
-### 💻 Languages
+### Languages
 <p>
   <img src="https://skillicons.dev/icons?i=js,cpp,java,python" />
 </p>
 
-### ⚙️ Frameworks & Libraries
+### Frameworks & Libraries
 <p>
   <img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,express,tailwind" />
 </p>
 
-### 🗄️ Databases
+### Databases
 <p>
   <img src="https://skillicons.dev/icons?i=mongodb,mysql" />
 </p>
 
-### 🛠️ Tools & Platforms
+### Tools & Platforms
 <p>
   <img src="https://skillicons.dev/icons?i=git,github,docker,postman,vercel" />
 </p>
 
 ---
 
-## 🚀 What I’m Working On
+## What I’m Working On
 
-- 🚀 Shipping MVP of **SUST Smart Attendance System**
-- ⚙️ Benchmarking **face-embedding & ML pipelines**
-- 🧩 Daily problem-solving on **Codeforces & LeetCode**
-- 📈 Improving system design & backend scalability
+- Shipping MVP of **SUST Smart Attendance System**
+- Benchmarking **face-embedding & ML pipelines**
+- Daily problem-solving on **Codeforces & LeetCode**
+- Improving system design & backend scalability
 
 ---
 
-## 📫 Let’s Connect
+## Let’s Connect
 
 <p>
   <a href="https://codeforces.com/profile/Null_Pointerrrr">
