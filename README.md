@@ -17,7 +17,7 @@ Attendance System provides:
 
 ---
 
-## 🧱 Tech Stack
+##  Tech Stack
 
 <div align="left">
 
@@ -35,7 +35,7 @@ Attendance System provides:
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Clone the Repository
 
@@ -78,36 +78,35 @@ npm run dev
 
 And the app is ready to be used.
 
-## 📸 Screenshots
+## Screenshots
 
-### 🔐 Login Page
+### Login Page
 ![Login](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/login.PNG)
 
 ---
 
-### 🏠 Dashboard Overview
-### 🏠 Dashboard Overview
+### Dashboard Overview
 ![Dashboard 1](https://i.ibb.co.com/v4MPb319/dashboard1.png)
 
 ![Dashboard 2](https://i.ibb.co.com/hF4r2pqg/image.png)
 
 ---
 
-### 🎓 Students Management
+### Students Management
 ![Students](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/students.PNG)
 
 ---
 
-### 📅 Attendance Marking Interface
+### Attendance Marking Interface
 ![Attendance](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/attendance.PNG)
 
 ---
 
-### 🗄️ ER Diagram
+### ER Diagram
 ![ER Diagram](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/ER.PNG)
 
 ---
 
-### 🧱 System Architecture Diagram
+### System Architecture Diagram
 ![Architecture Diagram](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/Architecture.PNG)
 
