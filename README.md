@@ -1,112 +1,128 @@
-# Attendance System – Digital Student Attendance App
+<!-- ===================== BANNER ===================== -->
+<p align="center">
+  <img src="https://i.ibb.co/3mccGNQ8/image.png" alt="Banner" />
+</p>
 
-A modern and user-friendly **attendance management system** designed for schools, colleges and universities.  
-This application replaces traditional paperwork and helps institutions **digitize attendance**, manage multiple grades/classes and view **monthly & yearly analytics**
+<h1 align="center">ASM Shahrier Parvaz</h1>
 
----
+<p align="center">
+  <b>Full-Stack Web Developer</b> • <b>Competitive Programmer</b> • <b>AI-Driven Problem Solver</b>
+</p>
 
-## Overview
-
-Attendance System provides:
-
-- Digital attendance marking (present/absent)
-- Multi-level support (grades, classes, sections)
-- Clean and interactive UI for managing students
-- Dashboard analytics for Monthly & yearly attendance matrix
-- Secure authentication
-
----
-
-##  Tech Stack
-
-<div align="left">
-
-![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white)
-![NeonDB](https://img.shields.io/badge/NeonDB-000000?logo=neondatabase&logoColor=00E699)
-![DrizzleORM](https://img.shields.io/badge/Drizzle_ORM-1e293b?logo=drizzle&logoColor=white)
-![Kinde](https://img.shields.io/badge/Kinde_Auth-0B1725?logo=kinde&logoColor=18E299)
-![AG Grid](https://img.shields.io/badge/AG_Grid-1E90FF?logo=ag-grid&logoColor=white)
-![Recharts](https://img.shields.io/badge/Recharts-10b981?logo=react&logoColor=ffffff)
-
-</div>
+<p align="center">
+  <a href="https://codeforces.com/profile/Null_Pointerrrr">
+    <img src="https://img.shields.io/badge/Codeforces-Specialist%201442-1f8acb?style=for-the-badge&logo=codeforces&logoColor=white" />
+  </a>
+  <a href="https://leetcode.com/">
+    <img src="https://img.shields.io/badge/LeetCode-1000%2B%20Solved-ffa116?style=for-the-badge&logo=leetcode&logoColor=black" />
+  </a>
+  <a href="https://www.codechef.com/users/null_pointerrr">
+    <img src="https://img.shields.io/badge/CodeChef-3★-8B4513?style=for-the-badge&logo=codechef&logoColor=white" />
+  </a>
+</p>
 
 ---
 
-## Installation & Setup
+## 👋 About Me
 
-### Clone the Repository
+I’m **ASM Shahrier Parvaz**, a passionate **full-stack developer** and **competitive programmer** who enjoys solving complex problems—whether through **efficient algorithms** or **scalable web systems**.
 
-```bash
-git clone https://github.com/AsmShuvo/Student-Attendance-App.git
-cd Student-Attendance-App
-npm install
-```
-
-## Environment Setup
-
-Create .env
-
-```
-DATABASE_URL="your_neon_postgre_url"
-```
-
-Create a .env.local
-
-```
-KINDE_CLIENT_ID=d351f7081e3346b39a1760597c7e59c9
-KINDE_CLIENT_SECRET=OOiI9Y84YE0V43OXxpuoHOtu9vXnhPKAB48Bl2h4l5LunHarDuJO
-KINDE_ISSUER_URL=https://myattendancetracking.kinde.com
-KINDE_SITE_URL=http://localhost:3000
-KINDE_POST_LOGOUT_REDIRECT_URL=http://localhost:3000
-KINDE_POST_LOGIN_REDIRECT_URL=http://localhost:3000/dashboard
-```
-
-database commands:
-```
-npm run db:push
-npm run db:studio
-```
-
-Run the app:
-
-```
-npm run dev
-```
-
-And the app is ready to be used.
-
-## Screenshots
-
-### Login Page
-![Login](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/login.PNG)
+I thrive at the intersection of **software engineering, AI, and competitive programming**, with a strong focus on **performance, correctness, and real-world impact**.
 
 ---
 
-### Dashboard Overview
-![Dashboard 1](https://i.ibb.co.com/v4MPb319/dashboard1.png)
+## 🧠 Current Focus
 
-![Dashboard 2](https://i.ibb.co.com/hF4r2pqg/image.png)
+### 🎓 SUST Smart Attendance System (AI-Powered)
+An intelligent platform that **automatically marks attendance from CCTV feeds** and analyzes **facial expressions** for engagement and alertness.
 
----
+**Tech Stack**
+- MERN (MongoDB, Express, React, Node.js)
+- Python, OpenCV, DeepFace
+- TensorFlow / PyTorch
+- REST APIs
 
-### Students Management
-![Students](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/students.PNG)
-
----
-
-### Attendance Marking Interface
-![Attendance](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/attendance.PNG)
-
----
-
-### ER Diagram
-![ER Diagram](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/ER.PNG)
+**Key Features**
+- Multi-face detection & tracking  
+- Face-embedding based identity matching  
+- Liveness detection (anti-spoofing)  
+- Class & session mapping  
+- Exportable analytics & attendance reports  
 
 ---
 
-### System Architecture Diagram
-![Architecture Diagram](https://raw.githubusercontent.com/AsmShuvo/images-attendance/main/Architecture.PNG)
+## 🧩 Competitive Programming Snapshot
 
+| Platform      | Status |
+|---------------|--------|
+| 🟦 **Codeforces** | Specialist (1442) |
+| 🟨 **LeetCode**   | **1000+ problems solved** |
+| 🟫 **CodeChef**   | 3★ |
+| 🧠 **Core Strengths** | DSA, OOP, Graphs, DP, Greedy, Math |
+
+🏆 **43rd place** — *Samsung R&D Institute Bangladesh Code Contest 2025 (Round 1)*
+
+---
+
+## 📊 Live Coding & GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Null-Pointerrrr&show_icons=true&theme=tokyonight&hide_border=true" height="165"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Null-Pointerrrr&theme=tokyonight&hide_border=true" height="165"/>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Null-Pointerrrr&layout=compact&theme=tokyonight&hide_border=true" height="150"/>
+</p>
+
+---
+
+## 🧰 Tech Stack
+
+### 💻 Languages
+<p>
+  <img src="https://skillicons.dev/icons?i=js,cpp,java,python" />
+</p>
+
+### ⚙️ Frameworks & Libraries
+<p>
+  <img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,express,tailwind" />
+</p>
+
+### 🗄️ Databases
+<p>
+  <img src="https://skillicons.dev/icons?i=mongodb,mysql" />
+</p>
+
+### 🛠️ Tools & Platforms
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,docker,postman,vercel" />
+</p>
+
+---
+
+## 🚀 What I’m Working On
+
+- 🚀 Shipping MVP of **SUST Smart Attendance System**
+- ⚙️ Benchmarking **face-embedding & ML pipelines**
+- 🧩 Daily problem-solving on **Codeforces & LeetCode**
+- 📈 Improving system design & backend scalability
+
+---
+
+## 📫 Let’s Connect
+
+<p>
+  <a href="https://codeforces.com/profile/Null_Pointerrrr">
+    <img src="https://img.shields.io/badge/Codeforces-Profile-blue?style=for-the-badge&logo=codeforces" />
+  </a>
+  <a href="https://www.codechef.com/users/null_pointerrr">
+    <img src="https://img.shields.io/badge/CodeChef-Profile-brown?style=for-the-badge&logo=codechef" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <i>“Solve problems. Build systems. Learn relentlessly.”</i>
+</p>
