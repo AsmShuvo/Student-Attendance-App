@@ -63,17 +63,6 @@ An intelligent platform that **automatically marks attendance from CCTV feeds** 
 
 ---
 
-## 📊 Live Coding & GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Null-Pointerrrr&show_icons=true&theme=tokyonight&hide_border=true" height="165"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Null-Pointerrrr&theme=tokyonight&hide_border=true" height="165"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Null-Pointerrrr&layout=compact&theme=tokyonight&hide_border=true" height="150"/>
-</p>
-
 ---
 
 ## Tech Stack
@@ -105,23 +94,7 @@ An intelligent platform that **automatically marks attendance from CCTV feeds** 
 - Shipping MVP of **SUST Smart Attendance System**
 - Benchmarking **face-embedding & ML pipelines**
 - Daily problem-solving on **Codeforces & LeetCode**
-- Improving system design & backend scalability
 
 ---
 
-## Let’s Connect
-
-<p>
-  <a href="https://codeforces.com/profile/Null_Pointerrrr">
-    <img src="https://img.shields.io/badge/Codeforces-Profile-blue?style=for-the-badge&logo=codeforces" />
-  </a>
-  <a href="https://www.codechef.com/users/null_pointerrr">
-    <img src="https://img.shields.io/badge/CodeChef-Profile-brown?style=for-the-badge&logo=codechef" />
-  </a>
-</p>
-
 ---
-
-<p align="center">
-  <i>“Solve problems. Build systems. Learn relentlessly.”</i>
-</p>
